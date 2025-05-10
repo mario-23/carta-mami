@@ -1,0 +1,86 @@
+body {
+    background: #fcdada;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.envoltorio {
+    perspective: 1000px;
+}
+
+.sobre {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    transition: transform 0s ease;
+    cursor: pointer;
+}
+
+.sobre.girado {
+    transform: none; /* Elimina la rotación */
+}
+
+.solapa {
+    width: 100%;
+    height: 100px;
+    background: #e04a4a;
+    clip-path: polygon(50% 100%, 0 0, 100% 0); /* Triángulo que apunta hacia abajo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transition: transform 0.3s ease;
+    transform: none; /* Elimina la rotación */
+}
+
+.solapa.abierta {
+    transform: none; /* Elimina la rotación */
+    z-index: 0;
+}
+
+/* Cuerpo del sobre */
+.cuerpo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ff6b6b;
+    border-radius: 5px;
+    padding-top: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+}
+
+.carta {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 280px;
+    height: 300px; /* Aumenté la altura de la carta */
+    background: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(40px); /* No usamos rotación */
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    z-index: 2;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    color: #222;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.4; /* Ajusté la altura de las líneas para mejorar la legibilidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.carta.abierta {
+    opacity: 1;
+    transform: translateY(-180px);
+}
